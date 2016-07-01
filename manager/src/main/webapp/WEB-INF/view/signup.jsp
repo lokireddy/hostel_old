@@ -7,6 +7,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<a href="login.LoRe">Login</a>
-</body>
+<p align="center">
+Please contact us to Sign up<br>
+<span style="font-style: oblique;">Loki Reddy</span><br>
++917799885251<br>
+Email:lokireddy.posam@gmail.com
+</p></body>
 </html>
