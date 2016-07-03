@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.myhostelmanager.form.LoginForm;
+import com.myhostelmanager.service.BlockService;
 import com.myhostelmanager.service.LoginService;
 import com.myhostelmanager.validator.LoginValidator;
 
@@ -20,7 +21,8 @@ public class MainController {
 
 	@Autowired
 	private LoginService loginService;
-	
+	@Autowired
+	private BlockService blockService;
 
 	@RequestMapping(value="/index", method=RequestMethod.GET)
 	private ModelAndView index(){
@@ -48,10 +50,11 @@ public class MainController {
 		if(b){
 			String hostelId=loginService.getHostelId(loginForm.getUid(), loginForm.getPwd());
 			System.out.println("Hostel: "+ hostelId);
-			loginService.getBlocks(hostelId);
 			model.addAttribute("hostelId", hostelId);
 			model.addAttribute("hostelName", loginService.getHostelName(hostelId));
-			modelView=new ModelAndView("preHome");
+//			blockService.getAllBlocks(hostelId);
+			model.addAttribute("BlockNames", blockService.getBlockIdNames(hostelId));
+			modelView=new ModelAndView("BlockHome");
 		}else{
 			modelView=new ModelAndView("login");
 		}
