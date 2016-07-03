@@ -13,13 +13,11 @@ import com.myhostelmanager.form.LoginForm;
 
 public class LoginValidator implements Validator {
 
-	@Override
 	public boolean supports(Class<?> arg0) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
-	@Override
 	public void validate(Object arg0, Errors errors) {
 		
 	}

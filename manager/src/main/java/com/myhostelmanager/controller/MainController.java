@@ -43,6 +43,7 @@ public class MainController {
 			System.out.println("Has Errors");
 			modelView=new ModelAndView("login");
 		}
+		System.out.println("before isUserValid");
 		boolean b = loginService.isUserValid(loginForm.getUid(), loginForm.getPwd());
 		if(b){
 			String hostelId=loginService.getHostelId(loginForm.getUid(), loginForm.getPwd());

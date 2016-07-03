@@ -1,7 +1,6 @@
 package com.myhostelmanager.dao;
 
 import java.util.List;
-import java.util.Map;
 
 import org.hibernate.Query;
 import org.hibernate.SessionFactory;
@@ -17,14 +16,13 @@ public class LoginDaoImpl implements LoginDao {
 	@Autowired
 	private SessionFactory sessionFactory;
 	
-	@Override
 	public List getUser(String uid, String pwd) {
 		 List<Login> logins = sessionFactory.getCurrentSession().createCriteria(Login.class).list();
+		 System.out.println("Dao:"+ logins.size());
 		return logins;
 		
 	}
 
-	@Override
 	public List<Block> getBlocks(String hostelId) {
 		
 		String hql = "from Block where hid= '"+hostelId+"'";
@@ -34,7 +32,6 @@ public class LoginDaoImpl implements LoginDao {
 		return blocks;
 	}
 
-	@Override
 	public String getHostelName(String hostelId) {
 		String hql = "select hname from Hostel where hid= '"+hostelId+"'";
 		Query query = sessionFactory.getCurrentSession().createQuery(hql);

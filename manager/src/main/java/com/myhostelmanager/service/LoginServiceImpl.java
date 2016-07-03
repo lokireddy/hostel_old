@@ -21,16 +21,16 @@ public class LoginServiceImpl implements LoginService {
 	private LoginDao loginDao;
 	private List<Login> loginList;
 	
-	@Override
 	public boolean isUserValid(String id, String pswd) {
+		System.out.println("id:"+id+"pswd:"+pswd);
 		loginList = loginDao.getUser(id, pswd);
-//		System.out.println("Size:"+loginList.size());
+		System.out.println("Size:"+loginList.size());
 		Iterator itr = loginList.iterator();
 		boolean status = false;
         while(itr.hasNext())
         {
         	Login l=(Login)itr.next();
-//            System.out.println(l.getUid()+"  "+l.getPwd()+" "+l.getHid());
+            System.out.println(l.getUid()+"  "+l.getPwd()+" "+l.getHid());
             if(id.equals(l.getUid()) && pswd.equals(l.getPwd())){
             	status = true;
             }
@@ -42,14 +42,13 @@ public class LoginServiceImpl implements LoginService {
 	}
 
 
-	@Override
 	public String getHostelId(String id, String pswd) {
 		Iterator itr = loginList.iterator();
 		String hostelId = "";
         while(itr.hasNext())
         {
         	Login l = (Login)itr.next();
-//            System.out.println(l.getUid()+"  "+l.getPwd()+" "+l.getHid());
+            System.out.println(l.getUid()+"  "+l.getPwd()+" "+l.getHid());
             if(id.equals(l.getUid()) && pswd.equals(l.getPwd())){
             	hostelId = l.getHid();
             }
@@ -58,7 +57,6 @@ public class LoginServiceImpl implements LoginService {
 	}
 
 
-	@Override
 	public List<Block> getBlocks(String hostelId) {
 		List<Block> blockList = loginDao.getBlocks(hostelId);
 		System.out.println("No of. Block Records:"+blockList.size());
@@ -72,7 +70,6 @@ public class LoginServiceImpl implements LoginService {
 	}
 
 
-	@Override
 	public String getHostelName(String hostelId) {
 		return loginDao.getHostelName(hostelId);
 	}

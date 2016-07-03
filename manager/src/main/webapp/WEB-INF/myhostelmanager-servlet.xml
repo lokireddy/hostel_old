@@ -16,7 +16,7 @@
             http://www.springframework.org/schema/context/spring-context.xsd">
             
 	<context:property-placeholder location="classpath:resources/database.properties"/>
-	<context:component-scan base-package="com.myhostelmanager"/>
+	<context:component-scan base-package="com.myhostelmanager.controller"/>
 	<mvc:annotation-driven/>
 	<tx:annotation-driven transaction-manager="hibernateTransactionManager"/>
 
