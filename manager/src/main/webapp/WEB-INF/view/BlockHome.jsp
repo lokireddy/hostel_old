@@ -22,12 +22,6 @@
 		</div>
 		
 		
-		<%-- <h2 align="center">Welcome..  <c:out value="${hostelName}"/></h2> --%>
-		<!-- 	<table align="center" width="50%"> -->
-		<!-- 		<tr> -->
-		<!-- 			<td><a href="http://localhost:8080/MyProject/showHome.html?blockId=b1">Block 1</a></td><td><a href="http://localhost:8080/MyProject/showHome.html?blockId=b2">Block 2</a></td> -->
-		<!-- 		</tr> -->
-		<!-- 		<tr><td><a href="http://localhost:8080/MyProject/showHome.html?blockId=b3">Block 3</a></td><td><a href="http://localhost:8080/MyProject/showHome.html?blockId=b4">Block 4</a></td></tr> -->
-		<!-- 	</table> -->
+		
 	</body>
 </html>
