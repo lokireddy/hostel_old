@@ -1,5 +1,7 @@
 package com.myhostelmanager.controller;
 
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,7 +55,8 @@ public class MainController {
 			model.addAttribute("hostelId", hostelId);
 			model.addAttribute("hostelName", loginService.getHostelName(hostelId));
 //			blockService.getAllBlocks(hostelId);
-			model.addAttribute("BlockNames", blockService.getBlockIdNames(hostelId));
+			Map<String, String> blockNamesMap = blockService.getBlockIdNames(hostelId);
+			model.addAttribute("BlockNames", blockNamesMap);
 			modelView=new ModelAndView("BlockHome");
 		}else{
 			modelView=new ModelAndView("login");

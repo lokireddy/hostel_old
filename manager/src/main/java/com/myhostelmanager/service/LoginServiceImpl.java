@@ -33,11 +33,13 @@ public class LoginServiceImpl implements LoginService {
             System.out.println(l.getUid()+"  "+l.getPwd()+" "+l.getHid());
             if(id.equals(l.getUid()) && pswd.equals(l.getPwd())){
             	status = true;
+            	break;
             }
             else{
             	status = false;
             }
         }
+        System.out.println("Login Status: "+status);
         return status;
 	}
 

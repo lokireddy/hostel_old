@@ -36,6 +36,11 @@ public class BlockServiceImpl implements BlockService {
 		}
 		return bNames;
 	}
+
+	public int getNoOfBlocks(String hId) {
+		
+		return 0;
+	}
 	
 	
 
