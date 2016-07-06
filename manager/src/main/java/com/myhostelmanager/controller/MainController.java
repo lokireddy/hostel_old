@@ -46,20 +46,27 @@ public class MainController {
 		if(result.hasErrors()){
 			System.out.println("Has Errors");
 			modelView=new ModelAndView("login");
-		}
-		System.out.println("before isUserValid");
-		boolean b = loginService.isUserValid(loginForm.getUid(), loginForm.getPwd());
-		if(b){
-			String hostelId=loginService.getHostelId(loginForm.getUid(), loginForm.getPwd());
-			System.out.println("Hostel: "+ hostelId);
-			model.addAttribute("hostelId", hostelId);
-			model.addAttribute("hostelName", loginService.getHostelName(hostelId));
-//			blockService.getAllBlocks(hostelId);
-			Map<String, String> blockNamesMap = blockService.getBlockIdNames(hostelId);
-			model.addAttribute("BlockNames", blockNamesMap);
-			modelView=new ModelAndView("BlockHome");
 		}else{
-			modelView=new ModelAndView("login");
+			System.out.println("before isUserValid");
+			boolean b = loginService.isUserValid(loginForm.getUid(), loginForm.getPwd());
+			if(b){
+				String hostelId=loginService.getHostelId(loginForm.getUid(), loginForm.getPwd());
+				System.out.println("Hostel: "+ hostelId);
+				model.addAttribute("hostelId", hostelId);
+				model.addAttribute("hostelName", loginService.getHostelName(hostelId));
+	//			blockService.getAllBlocks(hostelId);
+				Map<String, String> blockNamesMap = blockService.getBlockIdNames(hostelId);
+				model.addAttribute("BlockNames", blockNamesMap);
+				if(blockNamesMap.size()==1){
+					modelView=new ModelAndView("options");
+				}else{
+					modelView=new ModelAndView("BlockHome");				
+				}
+			}
+			else{
+				model.addAttribute("status","In Valid User");
+				modelView=new ModelAndView("login");
+			}
 		}
 		return modelView;
 	}

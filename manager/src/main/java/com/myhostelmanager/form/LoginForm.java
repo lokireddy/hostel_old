@@ -18,6 +18,4 @@ public class LoginForm {
 	public void setPwd(String pwd) {
 		this.pwd = pwd;
 	}
-	
-	
 }

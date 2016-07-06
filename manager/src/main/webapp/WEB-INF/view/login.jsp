@@ -15,13 +15,16 @@ td {
 padding-top: .5em;
 padding-bottom: .5em;
 }
+.panel-heading .msg { float:right }
+.panel-heading .login { float:left }
+
 </style>
 
 <title>Log in</title>
 <style>
-.err{
-	color:red;
-}
+	.err{
+		color:red;
+	}
 </style>
 </head>
 <body>
@@ -30,7 +33,9 @@ padding-bottom: .5em;
         <div class="col-md-4 col-md-offset-7">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <span class="glyphicon glyphicon-lock"></span> Login</div>
+                    <span class="glyphicon glyphicon-lock login"></span> Login
+                    <span class="err msg" style="text-align:right"> ${status }</span>
+                </div>
                 <div class="panel-body">
                     <form class="form-horizontal" role="form" action="signin.LoRe" method="post">
                     <div class="form-group">

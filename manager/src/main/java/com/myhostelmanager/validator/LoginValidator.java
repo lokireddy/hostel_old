@@ -5,13 +5,23 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
 
+import com.myhostelmanager.dao.LoginDao;
 import com.myhostelmanager.form.LoginForm;
+import com.myhostelmanager.model.Login;
+import com.myhostelmanager.service.LoginService;
 
 public class LoginValidator implements Validator {
+	
+//	@Autowired
+//	private LoginService loginService;
+//	
+//	@Autowired
+//	private LoginDao loginDao;
 
 	public boolean supports(Class<?> arg0) {
 		// TODO Auto-generated method stub
@@ -36,16 +46,26 @@ public class LoginValidator implements Validator {
 		if(loginForm.getPwd().isEmpty() || loginForm.getPwd()==null){
 			ValidationUtils.rejectIfEmptyOrWhitespace(errors, "pwd", "required.pwd", "Enter Password!");
 		}
+		
+//		boolean b = loginService.isUserValid(loginForm.getUid(), loginForm.getPwd());
+//		if(!b){
+//			errors.reject("status", "In valid User.");
+//		}
+//		
 //		if((!loginForm.getUid().isEmpty() && loginForm.getUid()!=null)&&(!loginForm.getPwd().isEmpty() && loginForm.getPwd()!=null)){
-//			Iterator<LoginForm> itr=users.iterator();
-//			while(itr.hasNext()){
+//		System.out.println("Validator id:"+loginForm.getUid()+"pswd:"+loginForm.getPwd());
+//		List<Login> loginList = loginDao.getUser(loginForm.getUid(), loginForm.getPwd());
+//		System.out.println("Size:"+loginList.size());
+//		Iterator itr = loginList.iterator();
+//		while(itr.hasNext()){
 //				LoginForm log=new LoginForm();
-//				log=itr.next();
+//				log=(LoginForm) itr.next();
 //				if(loginForm.getUid().equals(log.getUid()) && loginForm.getPwd().equals(log.getPwd())){
 //				}else{
-//						errors.rejectValue("username","username.incorrect","Enter Valid Username and Passowrd!");
+//						errors.rejectValue("uid","uid.incorrect","Enter Valid Username and Passowrd!");
 //				}
 //			}
-		}		
+//		}		
 	}
+}
 

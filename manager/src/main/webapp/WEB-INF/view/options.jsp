@@ -11,7 +11,15 @@
 <title>Home</title>
 </head>
 <body>
-<h2 align="center">Selected Block :  <c:out value="${blockId}"/></h2>
+	<div class="container"> 
+			<h1>Welcome... <c:out value = "${hostelName}"/></h1>
+		
+			<c:forEach items = "${BlockNames }" var = "block">
+			
+				<h2> ${block.value} </h2>
+			
+			</c:forEach>
+	</div>
 	<table align="center" width="50%">
 		<tr>
 			<td><a href="http://localhost:8080/MyProject/register.html">Add Student</a></td><td><a href="http://localhost:8080/MyProject/totalStudents.html">Display Students</a></td>
