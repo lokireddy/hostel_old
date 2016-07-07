@@ -18,6 +18,11 @@ padding-bottom: .5em;
 .panel-heading .msg { float:right }
 .panel-heading .login { float:left }
 
+.panel-default {
+opacity: 0.9;
+margin-top:50%;
+}
+
 </style>
 
 <title>Log in</title>
@@ -30,7 +35,7 @@ padding-bottom: .5em;
 <body>
 <div class="container">
     <div class="row">
-        <div class="col-md-4 col-md-offset-7">
+        <div class="col-md-4 col-md-offset-4">
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <span class="glyphicon glyphicon-lock login"></span> Login
