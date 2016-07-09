@@ -32,7 +32,6 @@
                     <div class="col-md-12">
                         <div class="logo text-center">
                             <h1><c:out value = "${hostelName}"/></h1>
-                            
                         </div>
                     </div>
                 </div>

@@ -4,6 +4,8 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -25,9 +27,12 @@ public class MainController {
 	private LoginService loginService;
 	@Autowired
 	private BlockService blockService;
+	
+	Logger logger=LoggerFactory.getLogger(MainController.class);
 
 	@RequestMapping(value="/index", method=RequestMethod.GET)
 	private ModelAndView index(){
+		logger.info("in MainController.index()");
 		return new ModelAndView("redirect:login.LoRe");	
 	}
 	
