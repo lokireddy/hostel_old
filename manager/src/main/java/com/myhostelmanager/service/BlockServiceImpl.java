@@ -36,7 +36,7 @@ public class BlockServiceImpl implements BlockService {
 		Map<String, String> bNames = new HashMap<String, String>();
 		while(itr.hasNext()){
 			Block b = (Block) itr.next();
-			logger.info("Block =id: "+b.getBid()+" Name:"+b.getBname());
+			logger.info("Block =id:{} Name:{}", b.getBid(), b.getBname());
 			bNames.put(b.getBid(), b.getBname());
 		}
 		return bNames;

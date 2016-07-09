@@ -30,6 +30,7 @@ public class MainController {
 	
 	Logger logger=LoggerFactory.getLogger(MainController.class);
 
+	/*-------------- Login ---------------*/
 	@RequestMapping(value="/index", method=RequestMethod.GET)
 	private ModelAndView index(){
 		logger.info("Redirecting from Index page");
@@ -45,7 +46,7 @@ public class MainController {
 	
 	@RequestMapping(value="/signin", method=RequestMethod.POST)
 	private ModelAndView Signin(@ModelAttribute("loginForm") LoginForm loginForm, BindingResult result, ModelMap model){
-		logger.info("Uid "+loginForm.getUid()+ " " + loginForm.getPwd());
+		logger.info("Uid:{}  pwd:{}", loginForm.getUid(), loginForm.getPwd());
 		ModelAndView modelView=null;
 		LoginValidator loginValidator = new LoginValidator();
 		loginValidator.validateUser(loginForm, result);
@@ -58,7 +59,7 @@ public class MainController {
 			if(b){
 				logger.info("Getting Hostel Id.");
 				String hostelId=loginService.getHostelId(loginForm.getUid(), loginForm.getPwd());
-				logger.info("Hostel Id: "+ hostelId);
+				logger.info("Hostel Id:{} ", hostelId);
 				model.addAttribute("hostelId", hostelId);
 				logger.info("Getting Hostel Name.");
 				model.addAttribute("hostelName", loginService.getHostelName(hostelId));
@@ -82,11 +83,24 @@ public class MainController {
 		return modelView;
 	}
 	
+	/*------------------- Sign Up ------------------------*/
+	
 	@RequestMapping(value="/register", method=RequestMethod.GET)
 	private String signUp(){
 		logger.info("Redirecting to Sign Up");
 		return "signup";	
 	}
 	
+	/*-------------- Options ----------------------------*/
 	
+	@RequestMapping(value="/options", method=RequestMethod.GET)
+	private ModelAndView options(HttpServletRequest request, ModelMap model){
+		logger.info("Options method invoked.");
+		String bId=request.getParameter("bId");
+		String bName=request.getParameter("bName");
+		logger.info("bId:{} and bName:{}",bId,bName);
+		model.addAttribute("bId", bId);
+		model.addAttribute("hostelName", bName);
+		return new ModelAndView("options");
+	}
 }

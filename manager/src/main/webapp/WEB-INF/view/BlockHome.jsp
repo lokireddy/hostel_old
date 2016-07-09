@@ -43,7 +43,7 @@
 	                <div class="col-md-4 col-md-offset-4">
 	                    <c:forEach items = "${BlockNames }" var = "block">
 	                        <div class="menu-item blue">
-	                            <a href="options.LoRe?bId=${block.key }" >
+	                            <a href="options.LoRe?bId=${block.key }&bName=${block.value}" >
 	                                <br><br>
 		                                <p style="font-size:50px">${block.value}</p>
 	                                <br><br>

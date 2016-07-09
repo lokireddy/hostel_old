@@ -22,7 +22,7 @@ public class LoginDaoImpl implements LoginDao {
 	
 	public List getUser(String uid, String pwd) {
 		 List<Login> logins = sessionFactory.getCurrentSession().createCriteria(Login.class).list();
-		 logger.info("Dao:"+ logins.size());
+		 logger.info("Dao:{}", logins.size());
 		return logins;
 		
 	}

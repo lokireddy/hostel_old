@@ -26,7 +26,7 @@ public class LoginServiceImpl implements LoginService {
 	Logger logger=LoggerFactory.getLogger(MainController.class);
 	
 	public boolean isUserValid(String id, String pswd) {
-		logger.info("id:"+id+"pswd:"+pswd);
+		logger.info("id:{} pswd:{}", id, pswd);
 		loginList = loginDao.getUser(id, pswd);
 		logger.info("Size:"+loginList.size());
 		Iterator itr = loginList.iterator();
@@ -34,7 +34,7 @@ public class LoginServiceImpl implements LoginService {
         while(itr.hasNext())
         {
         	Login l=(Login)itr.next();
-        	logger.info(l.getUid()+"  "+l.getPwd()+" "+l.getHid());
+        	logger.info("{}  {}  {}",l.getUid(), l.getPwd(), l.getHid());
             if(id.equals(l.getUid()) && pswd.equals(l.getPwd())){
             	status = true;
             	break;
@@ -43,7 +43,7 @@ public class LoginServiceImpl implements LoginService {
             	status = false;
             }
         }
-        logger.info("Login Status: "+status);
+        logger.info("Login Status:{} ", status);
         return status;
 	}
 
@@ -54,7 +54,7 @@ public class LoginServiceImpl implements LoginService {
         while(itr.hasNext())
         {
         	Login l = (Login)itr.next();
-        	logger.info(l.getUid()+"  "+l.getPwd()+" "+l.getHid());
+        	logger.info("{}  {}  {}", l.getUid(), l.getPwd(), l.getHid());
             if(id.equals(l.getUid()) && pswd.equals(l.getPwd())){
             	hostelId = l.getHid();
             }
@@ -70,7 +70,7 @@ public class LoginServiceImpl implements LoginService {
         while(itr.hasNext())
         {
         	Block block=(Block)itr.next();
-        	logger.info("Block ID:"+block.getBid()+"  Block Name:"+block.getBname()+"  HostelID:"+block.getHid());
+        	logger.info("Block ID:{}   Block Name:{}   Hostel ID:{}", block.getBid(), block.getBname(), block.getHid());
         }	
 		return blockList;
 	}

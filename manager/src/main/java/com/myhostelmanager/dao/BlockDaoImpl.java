@@ -20,12 +20,12 @@ public class BlockDaoImpl implements BlockDao {
 	Logger logger=LoggerFactory.getLogger(MainController.class);
 	
 	public List getBlocks(String hId) {
-		logger.info("Hid in getBlocks():"+hId);
+		logger.info("Hid in getBlocks():{}",hId);
 		String hql = "from Block where hid= '"+hId+"'";
 		Query query = sessionFactory.getCurrentSession().createQuery(hql);
         List<Block> blocks = query.list();
         logger.info("Query Executed.");
-        logger.info("Blocks Size:"+blocks.size());
+        logger.info("Blocks Size:{}",blocks.size());
 		return blocks;
 	}
 
