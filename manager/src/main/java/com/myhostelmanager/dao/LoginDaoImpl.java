@@ -4,9 +4,12 @@ import java.util.List;
 
 import org.hibernate.Query;
 import org.hibernate.SessionFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.myhostelmanager.controller.MainController;
 import com.myhostelmanager.model.Block;
 import com.myhostelmanager.model.Login;
 
@@ -15,10 +18,11 @@ public class LoginDaoImpl implements LoginDao {
 
 	@Autowired
 	private SessionFactory sessionFactory;
+	Logger logger=LoggerFactory.getLogger(MainController.class);
 	
 	public List getUser(String uid, String pwd) {
 		 List<Login> logins = sessionFactory.getCurrentSession().createCriteria(Login.class).list();
-		 System.out.println("Dao:"+ logins.size());
+		 logger.info("Dao:"+ logins.size());
 		return logins;
 		
 	}
@@ -28,7 +32,7 @@ public class LoginDaoImpl implements LoginDao {
 		String hql = "from Block where hid= '"+hostelId+"'";
 		Query query = sessionFactory.getCurrentSession().createQuery(hql);
         List<Block> blocks = query.list();
-		
+        logger.info("Query executed.");
 		return blocks;
 	}
 
@@ -36,6 +40,7 @@ public class LoginDaoImpl implements LoginDao {
 		String hql = "select hname from Hostel where hid= '"+hostelId+"'";
 		Query query = sessionFactory.getCurrentSession().createQuery(hql);
         List<String> hnames = query.list();
+        logger.info("Query executed.");
 		return hnames.get(0);
 	}
 	

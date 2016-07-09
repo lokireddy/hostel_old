@@ -6,5 +6,4 @@ import java.util.Map;
 public interface BlockService {
 	public List getAllBlocks(String hId);
 	public Map getBlockIdNames(String hId);
-	public int getNoOfBlocks(String bId);
 }

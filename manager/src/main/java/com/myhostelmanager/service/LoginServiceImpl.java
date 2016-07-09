@@ -4,11 +4,14 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.myhostelmanager.controller.MainController;
 import com.myhostelmanager.dao.LoginDao;
 import com.myhostelmanager.model.Block;
 import com.myhostelmanager.model.Login;
@@ -20,17 +23,18 @@ public class LoginServiceImpl implements LoginService {
 	@Autowired
 	private LoginDao loginDao;
 	private List<Login> loginList;
+	Logger logger=LoggerFactory.getLogger(MainController.class);
 	
 	public boolean isUserValid(String id, String pswd) {
-		System.out.println("id:"+id+"pswd:"+pswd);
+		logger.info("id:"+id+"pswd:"+pswd);
 		loginList = loginDao.getUser(id, pswd);
-		System.out.println("Size:"+loginList.size());
+		logger.info("Size:"+loginList.size());
 		Iterator itr = loginList.iterator();
 		boolean status = false;
         while(itr.hasNext())
         {
         	Login l=(Login)itr.next();
-            System.out.println(l.getUid()+"  "+l.getPwd()+" "+l.getHid());
+        	logger.info(l.getUid()+"  "+l.getPwd()+" "+l.getHid());
             if(id.equals(l.getUid()) && pswd.equals(l.getPwd())){
             	status = true;
             	break;
@@ -39,7 +43,7 @@ public class LoginServiceImpl implements LoginService {
             	status = false;
             }
         }
-        System.out.println("Login Status: "+status);
+        logger.info("Login Status: "+status);
         return status;
 	}
 
@@ -50,7 +54,7 @@ public class LoginServiceImpl implements LoginService {
         while(itr.hasNext())
         {
         	Login l = (Login)itr.next();
-            System.out.println(l.getUid()+"  "+l.getPwd()+" "+l.getHid());
+        	logger.info(l.getUid()+"  "+l.getPwd()+" "+l.getHid());
             if(id.equals(l.getUid()) && pswd.equals(l.getPwd())){
             	hostelId = l.getHid();
             }
@@ -61,12 +65,12 @@ public class LoginServiceImpl implements LoginService {
 
 	public List<Block> getBlocks(String hostelId) {
 		List<Block> blockList = loginDao.getBlocks(hostelId);
-		System.out.println("No of. Block Records:"+blockList.size());
+		logger.info("No of. Block Records:"+blockList.size());
 		Iterator itr = blockList.iterator();
         while(itr.hasNext())
         {
         	Block block=(Block)itr.next();
-            System.out.println("Block ID:"+block.getBid()+"  Block Name:"+block.getBname()+"  HostelID:"+block.getHid());
+        	logger.info("Block ID:"+block.getBid()+"  Block Name:"+block.getBname()+"  HostelID:"+block.getHid());
         }	
 		return blockList;
 	}

@@ -5,11 +5,14 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
 
+import com.myhostelmanager.controller.MainController;
 import com.myhostelmanager.dao.LoginDao;
 import com.myhostelmanager.form.LoginForm;
 import com.myhostelmanager.model.Login;
@@ -23,6 +26,7 @@ public class LoginValidator implements Validator {
 //	@Autowired
 //	private LoginDao loginDao;
 
+	Logger logger=LoggerFactory.getLogger(MainController.class);
 	public boolean supports(Class<?> arg0) {
 		// TODO Auto-generated method stub
 		return false;
@@ -33,7 +37,7 @@ public class LoginValidator implements Validator {
 	}
 	
 	public void validateUser(LoginForm loginForm, Errors errors){
-		System.out.println("IN validator");
+		logger.info("Entered into Login validator");
 		if(loginForm.getUid().isEmpty() || loginForm.getUid()==null){
 			ValidationUtils.rejectIfEmptyOrWhitespace(errors, "uid", "required.uid", "Enter UserName!");
 		}else{
@@ -46,7 +50,7 @@ public class LoginValidator implements Validator {
 		if(loginForm.getPwd().isEmpty() || loginForm.getPwd()==null){
 			ValidationUtils.rejectIfEmptyOrWhitespace(errors, "pwd", "required.pwd", "Enter Password!");
 		}
-		
+		logger.info("Validation Completed.");
 //		boolean b = loginService.isUserValid(loginForm.getUid(), loginForm.getPwd());
 //		if(!b){
 //			errors.reject("status", "In valid User.");
