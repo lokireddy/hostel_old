@@ -1,5 +1,6 @@
 package com.myhostelmanager.controller;
 
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.myhostelmanager.form.LoginForm;
+import com.myhostelmanager.form.NewTenantForm;
 import com.myhostelmanager.service.BlockService;
 import com.myhostelmanager.service.LoginService;
 import com.myhostelmanager.validator.LoginValidator;
@@ -101,6 +103,23 @@ public class MainController {
 		logger.info("bId:{} and bName:{}",bId,bName);
 		model.addAttribute("bId", bId);
 		model.addAttribute("hostelName", bName);
+		logger.info("Block Name:{}",bName);
 		return new ModelAndView("options");
+	}
+	
+	/*--------------- New Tenant -------------------------*/
+	@RequestMapping(value="/addTenant", method=RequestMethod.GET)
+	private ModelAndView newTenant(@ModelAttribute("newTenant") NewTenantForm newTenantForm, BindingResult result, ModelMap model, HttpServletRequest request ){
+		logger.info("Options method invoked.");
+		String bId=request.getParameter("bId");
+		String bName=request.getParameter("bName");
+		logger.info("bId:{} and bName:{}",bId,bName);
+		model.addAttribute("bId", bId);
+		model.addAttribute("hostelName", bName);
+		List<String> roomNos = blockService.getRooms(bId);
+		model.addAttribute("roomNos", roomNos);
+		logger.info("Room Nos added to List.");
+		logger.info("Redirecting to newTenant.");
+		return new ModelAndView("newTenant");
 	}
 }

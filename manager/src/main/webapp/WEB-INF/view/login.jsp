@@ -13,7 +13,7 @@
 <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
 <script src="js/jquery.min.js"></script>
 <script src="bootstrap/js/bootstrap.min.js"></script>
-
+<link href="css/style.css" rel="stylesheet">
 <style>
 
 td {
@@ -37,7 +37,7 @@ margin-top:50%;
 	}
 </style>
 </head>
-<body>
+<body background="images/background.jpg">
 <div class="container">
     <div class="row">
         <div class="col-md-4 col-md-offset-4">

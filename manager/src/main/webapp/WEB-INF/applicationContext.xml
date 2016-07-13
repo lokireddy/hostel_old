@@ -39,6 +39,7 @@
 				   <value>com.myhostelmanager.model.Login</value>
 				   <value>com.myhostelmanager.model.Block</value>
 				   <value>com.myhostelmanager.model.Hostel</value>
+				    <value>com.myhostelmanager.model.Room</value>
 			 </list>
 		 </property>
 		 <property name="hibernateProperties">

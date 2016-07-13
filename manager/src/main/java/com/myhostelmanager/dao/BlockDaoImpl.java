@@ -29,4 +29,12 @@ public class BlockDaoImpl implements BlockDao {
 		return blocks;
 	}
 
+	public List getRoomNos(String bId) {
+		logger.info("Block Id:{}", bId);
+		String hql = "select rno from Room where bId = '"+bId+"'";
+		Query query = sessionFactory.getCurrentSession().createQuery(hql);
+		List<String> roomNos = query.list();
+		return roomNos;
+	}
+
 }

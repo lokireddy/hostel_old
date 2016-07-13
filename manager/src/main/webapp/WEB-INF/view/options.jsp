@@ -7,17 +7,17 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Home</title>
-        <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-     <!-- Custom CSS -->
-        <link href="css/style.css" rel="stylesheet">
-<style>
-        p{
-        	font-size:50px;
-        }
-</style>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<title>Options</title>
+    <script src="js/jquery.min.js"></script>
+	<script src="bootstrap/js/bootstrap.min.js"></script>
+	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+	<style>
+	        p{
+	        	font-size:50px;
+	        }
+	</style>
 </head>
 <body>
 <!-- 	<div class="container">  -->
@@ -28,15 +28,6 @@
 <%-- 				<h2> ${block.value} </h2> --%>
 			
 <%-- 			</c:forEach> --%>
-<!-- 	</div> -->
-<!-- 	<table align="center" width="50%"> -->
-<!-- 		<tr> -->
-<!-- 			<td><a href="http://localhost:8080/MyProject/register.html">Add Student</a></td><td><a href="http://localhost:8080/MyProject/totalStudents.html">Display Students</a></td> -->
-<!-- 		</tr> -->
-<!-- 		<tr><td><a href="http://localhost:8080/MyProject/balanceStudents.html">Due Student</a></td><td><a href="http://localhost:8080/MyProject/vacancies.html">Empty</a></td></tr> -->
-<!-- 	</table> -->
-	
-	
         <!-- Start Logo Section -->
         <section id="logo-section" class="text-center">
             <div class="container">
@@ -61,9 +52,9 @@
                     <div class="col-md-6">
                         
                         <div class="menu-item blue">
-                            <a href="#">
+                            <a href="addTenant.LoRe?bId=${bId }&bName=${hostelName}">
                                 <br><br>
-                                <p style="font-size:50px">New</p>
+                                <p style="font-size:50px">New Tenant</p>
                                 <br><br>
                             </a>
                         </div>
@@ -71,7 +62,7 @@
                         <div class="menu-item green">
                             <a href="#">
 								<br><br>
-                                <p style="font-size:50px">Update</p>
+                                <p style="font-size:50px">Update Details</p>
                                 <br><br>
                             </a>
                         </div>
@@ -79,7 +70,7 @@
                         <div class="menu-item light-red">
                             <a href="#">
 								<br><br>
-                                <p style="font-size:50px">Pay</p>
+                                <p style="font-size:50px">Pay Rent</p>
                                 <br><br>
                             </a>
                         </div>
@@ -90,7 +81,7 @@
                         <div class="menu-item light-red">
                             <a href="#">
 								<br><br>
-                                <p style="font-size:50px">Vacant</p>
+                                <p style="font-size:50px">Vacancies</p>
                                 <br><br>
                             </a>
                         </div>
@@ -98,7 +89,7 @@
                         <div class="menu-item color">
                             <a href="#">
 								<br><br>
-                                <p style="font-size:50px">Leaving</p>
+                                <p style="font-size:50px">Vacating Tenants</p>
                                 <br><br>
                             </a>
                         </div>
@@ -106,7 +97,7 @@
                         <div class="menu-item blue">
                             <a href="#">
 								<br><br>
-                                <p style="font-size:50px">All</p>
+                                <p style="font-size:50px">All Tenants</p>
                                 <br><br>
                             </a>
                         </div>

@@ -41,4 +41,11 @@ public class BlockServiceImpl implements BlockService {
 		}
 		return bNames;
 	}
+
+	public List getRooms(String bId) {
+		logger.info("Block Id: {}", bId);
+		List<String> rooms = blockDao.getRoomNos(bId);
+		logger.info("No of Rooms: {}", rooms.size());
+		return rooms;
+	}
 }

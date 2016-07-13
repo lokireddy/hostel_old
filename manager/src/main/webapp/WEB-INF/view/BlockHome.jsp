@@ -8,7 +8,6 @@
 <!-- 		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> -->
 <!-- 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->
 <!-- 		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script> -->
-		<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
 		<script src="js/jquery.min.js"></script>
 		<script src="bootstrap/js/bootstrap.min.js"></script>
 		<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -16,18 +15,7 @@
 		<title>Blocks Home</title>
 	</head>
 	<body>
-<!-- 		<div class="container">  -->
-<%-- 			<h1>Welcome... <c:out value = "${hostelName}"/></h1> --%>
-		
-<%-- 			<c:forEach items = "${BlockNames }" var = "block"> --%>
-			
-<%-- 				<a href = "#" class = "btn btn-primary btn-lg active btn-responsive" id = "${block.key}" role = "button"> ${block.value} </a> --%>
-			
-<%-- 			</c:forEach> --%>
-<!-- 		</div> -->
-		
-		
-		
+
         <!-- Start Logo Section -->
         <section id="logo-section" class="text-center">
             <div class="container">
