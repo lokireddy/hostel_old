@@ -10,24 +10,37 @@
 		<script src="bootstrap/js/bootstrap.min.js"></script>
 		<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	    <link href="css/style.css" rel="stylesheet">
-	    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+	    
+	    <script src="js/jquery-1.11.1.min.js"></script>
+	    <link rel="stylesheet" href="bootstrap/css/font-awesome.min.css">
+		<link rel="stylesheet" href="bootstrap/css/bootstrap-datepicker3.css"/>	    
+	    <link rel="stylesheet" href="bootstrap/css/bootstrap-iso.css" />
+		<link rel="stylesheet" href="css/font-awesome.min.css" />	    
+	    <link rel="stylesheet" href="bootstrap/css/bootstrap-select.min.css">
+		<script src="bootstrap/js/bootstrap-select.min.js"></script>	    
+	    <script type="text/javascript" src="bootstrap/js/bootstrap-datepicker.min.js"></script>
+	    	
+<!-- 	    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script> -->
 	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
-		<link href='https://fonts.googleapis.com/css?family=Passion+One' rel='stylesheet' type='text/css'>
-		<link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
+<!-- 		<link href='https://fonts.googleapis.com/css?family=Passion+One' rel='stylesheet' type='text/css'> -->
+<!-- 		<link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'> -->
 		
 		<!-- 	    Date picker -->
-	    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
-	    <link rel="stylesheet" href="https://formden.com/static/cdn/bootstrap-iso.css" />
+<!-- 	    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script> -->
+<!-- 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/> -->
+<!-- 	    <link rel="stylesheet" href="https://formden.com/static/cdn/bootstrap-iso.css" /> -->
+		
 
 		<!--Font Awesome (added because you use icons in your prepend/append)-->
-		<link rel="stylesheet" href="https://formden.com/static/cdn/font-awesome/4.4.0/css/font-awesome.min.css" />
+<!-- 		<link rel="stylesheet" href="https://formden.com/static/cdn/font-awesome/4.4.0/css/font-awesome.min.css" /> -->
 		<style>.bootstrap-iso .formden_header h2, .bootstrap-iso .formden_header p, .bootstrap-iso form{font-family: Arial, Helvetica, sans-serif; color: black}.bootstrap-iso form button, .bootstrap-iso form button:hover{color: white !important;} .asteriskField{color: red;}</style>
 	    
 		<!-- 	    Drop down -->
-	    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css">
+<!-- 	    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css"> -->
+	    
 		<!-- Latest compiled and minified JavaScript -->
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/bootstrap-select.min.js"></script>
+<!-- 		<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/bootstrap-select.min.js"></script> -->
+		
 	    
 	    
 	    <style type="text/css">
