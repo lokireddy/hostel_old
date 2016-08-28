@@ -26,7 +26,7 @@ public class LoginValidator implements Validator {
 //	@Autowired
 //	private LoginDao loginDao;
 
-	Logger logger=LoggerFactory.getLogger(MainController.class);
+	Logger logger=LoggerFactory.getLogger(LoginValidator.class);
 	public boolean supports(Class<?> arg0) {
 		// TODO Auto-generated method stub
 		return false;

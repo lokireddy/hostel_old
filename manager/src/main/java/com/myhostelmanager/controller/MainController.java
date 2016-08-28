@@ -18,9 +18,12 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.myhostelmanager.form.LoginForm;
 import com.myhostelmanager.form.NewTenantForm;
+import com.myhostelmanager.model.Person;
 import com.myhostelmanager.service.BlockService;
 import com.myhostelmanager.service.LoginService;
+import com.myhostelmanager.service.OperationsService;
 import com.myhostelmanager.validator.LoginValidator;
+import com.myhostelmanager.validator.NewTenantValidator;
 
 @Controller
 public class MainController {
@@ -29,6 +32,8 @@ public class MainController {
 	private LoginService loginService;
 	@Autowired
 	private BlockService blockService;
+	@Autowired
+	private OperationsService operationsService;
 	
 	Logger logger=LoggerFactory.getLogger(MainController.class);
 
@@ -110,7 +115,7 @@ public class MainController {
 	/*--------------- New Tenant -------------------------*/
 	@RequestMapping(value="/addTenant", method=RequestMethod.GET)
 	private ModelAndView newTenant(@ModelAttribute("newTenant") NewTenantForm newTenantForm, BindingResult result, ModelMap model, HttpServletRequest request ){
-		logger.info("Options method invoked.");
+		logger.info("newTenant method invoked.");
 		String bId=request.getParameter("bId");
 		String bName=request.getParameter("bName");
 		logger.info("bId:{} and bName:{}",bId,bName);
@@ -122,4 +127,39 @@ public class MainController {
 		logger.info("Redirecting to newTenant.");
 		return new ModelAndView("newTenant");
 	}
+	
+	@RequestMapping(value = "/addTenant", method = RequestMethod.POST)
+	private ModelAndView saveTenant(@ModelAttribute("newTenant") NewTenantForm newTenantForm, BindingResult result, ModelMap model){
+		ModelAndView modelView=null;
+		logger.info(newTenantForm.toString());
+		model.addAttribute("bId", newTenantForm.getbId());
+		model.addAttribute("hostelName", newTenantForm.getHostelName());
+		List<String> roomNos = blockService.getRooms(newTenantForm.getbId());
+		model.addAttribute("roomNos", roomNos);
+		logger.info("Room Nos added to List.");
+		logger.info("Redirecting to newTenant.");
+		NewTenantValidator newTenantValidator = new NewTenantValidator();
+		newTenantValidator.validateTenant(newTenantForm, result);
+		if(result.hasErrors()){
+			logger.info("Has Erros");
+			modelView = new ModelAndView("newTenant");
+		}else{
+			boolean personExist = operationsService.isPersonExist(newTenantForm);
+			if(personExist){
+				logger.info("Person already exist.");
+				model.addAttribute("personStatus", "Person already registered.");
+				modelView = new ModelAndView("newTenant");
+			}else{
+				logger.info("Registering person.");
+				Person person = operationsService.personFormToPerson(newTenantForm);
+				operationsService.savePerson(person);
+				newTenantForm = null;
+				modelView = new ModelAndView("newTenant");
+			}
+		}
+		return modelView;
+	}
+	
+	
+	
 }

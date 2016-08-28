@@ -9,6 +9,8 @@ public class NewTenantForm {
 	private String address;
 	private String room;
 	private int amount;
+	private String bId;
+	private String hostelName;
 	
 	public String getName() {
 		return name;
@@ -57,5 +59,23 @@ public class NewTenantForm {
 	}
 	public void setAmount(int amount) {
 		this.amount = amount;
+	}
+	public String getbId() {
+		return bId;
+	}
+	public void setbId(String bId) {
+		this.bId = bId;
+	}
+	public String getHostelName() {
+		return hostelName;
+	}
+	public void setHostelName(String hostelName) {
+		this.hostelName = hostelName;
+	}
+	@Override
+	public String toString() {
+		return "NewTenantForm [name=" + name + ", mobile=" + mobile + ", email=" + email + ", id=" + id + ", doj=" + doj
+				+ ", address=" + address + ", room=" + room + ", amount=" + amount + ", bId=" + bId + ", hostelName="
+				+ hostelName + "]";
 	}
 }

@@ -9,7 +9,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.myhostelmanager.controller.MainController;
 import com.myhostelmanager.model.Block;
 import com.myhostelmanager.model.Login;
 
@@ -18,9 +17,12 @@ public class LoginDaoImpl implements LoginDao {
 
 	@Autowired
 	private SessionFactory sessionFactory;
-	Logger logger=LoggerFactory.getLogger(MainController.class);
+	Logger logger=LoggerFactory.getLogger(LoginDaoImpl.class);
 	
 	public List getUser(String uid, String pwd) {
+//		String hql = "select hid from Login where uid = '" + uid + "' and pwd = '" + pwd +"'";
+//		Query query = sessionFactory.getCurrentSession().createQuery(hql);
+//		List<String> logins = query.list();
 		 List<Login> logins = sessionFactory.getCurrentSession().createCriteria(Login.class).list();
 		 logger.info("Dao:{}", logins.size());
 		return logins;

@@ -12,7 +12,7 @@
 	    <link href="css/style.css" rel="stylesheet">
 	    
 	    <script src="js/jquery-1.11.1.min.js"></script>
-	    <link rel="stylesheet" href="bootstrap/css/font-awesome.min.css">
+<!-- 	    <link rel="stylesheet" href="bootstrap/css/font-awesome.min.css"> -->
 		<link rel="stylesheet" href="bootstrap/css/bootstrap-datepicker3.css"/>	    
 	    <link rel="stylesheet" href="bootstrap/css/bootstrap-iso.css" />
 		<link rel="stylesheet" href="css/font-awesome.min.css" />	    
@@ -96,6 +96,9 @@
 				font-size: 11px;
 				text-align: center;
 			}
+			.err{
+				color:red;
+			}
 	    </style>
 	    
 	    	    
@@ -120,7 +123,8 @@
 			<div class="row main">
 				<div class="main-login main-center">
 					<form class="form-horizontal" role="form" method="post" action="addTenant.LoRe">
-						
+						<form:input path = "newTenant.bId" type = "hidden" value="${bId }" />
+						<form:input path = "newTenant.hostelName" type = "hidden" value = "${hostelName }" />
 						<div class="form-group">
 							<form:label path="newTenant.name" for="name" class="cols-sm-2 control-label">Name</form:label>
 							<div class="cols-sm-10">
@@ -128,6 +132,7 @@
 									<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
 									<form:input path="newTenant.name" type="text" class="form-control" name="name" id="name" placeholder="Enter Name"/>
 								</div>
+								<form:errors path="newTenant.name" class="err"/>
 							</div>
 						</div>
 
@@ -136,8 +141,9 @@
 							<div class="cols-sm-10">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-phone fa" aria-hidden="true"></i></span>
-									<form:input path="newTenant.mobile" type="number" min="7777777777" max="9999999999" class="form-control" name="mobile" id="mobile"  placeholder="9876543210"/>
+									<form:input path="newTenant.mobile" type="number" min="7000000000" max="9999999999" class="form-control" name="mobile" id="mobile"  placeholder="9876543210"/>
 								</div>
+								<form:errors path="newTenant.mobile" class="err"/>
 							</div>
 						</div>
 						
@@ -148,6 +154,7 @@
 									<span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
 									<form:input path="newTenant.email" type="text" class="form-control" name="email" id="email"  placeholder="Enter Email"/>
 								</div>
+								<form:errors path="newTenant.email" class="err"/>
 							</div>
 						</div>
 
@@ -158,6 +165,7 @@
 									<span class="input-group-addon"><i class="fa fa-university fa" aria-hidden="true"></i></span>
 									<form:input path="newTenant.id" type="text" class="form-control" name="id" id="id"  placeholder="Enter Gov. Id Number"/>
 								</div>
+								<form:errors path="newTenant.id" class="err"/>
 							</div>
 						</div>
 
@@ -168,6 +176,7 @@
 									<span class="input-group-addon"><i class="fa fa-calendar fa" aria-hidden="true"></i></span>
 									<form:input path="newTenant.doj" type="text" class="form-control doj" name="doj" id="doj"  placeholder="Enter Date of Join"/>
 								</div>
+								<form:errors path="newTenant.doj" class="err"/>
 							</div>
 						</div>
 						
@@ -191,6 +200,7 @@
     									<form:options items="${roomNos}" />
 									</form:select>
 								</div>
+								<form:errors path="newTenant.room" class="err"/>
 							</div>
 						</div>
 						
@@ -201,11 +211,13 @@
 									<span class="input-group-addon"><i class="fa fa-inr fa" aria-hidden="true"></i></span>
 									<form:input path="newTenant.amount" type="number" min="0" class="form-control" name="amount" id="amount"  placeholder="Enter Amount"/>
 								</div>
+								<form:errors path="newTenant.amount" class="err"/>
 							</div>
 						</div>
 
 						<div class="form-group ">
-							<button type="button" class="btn btn-primary btn-lg btn-block login-button">Add Tenant</button>
+							<button type="submit" class="btn btn-primary btn-lg btn-block login-button">Add Tenant</button>
+							<button type="reset" class="btn btn-link btn-lg btn-block ">Reset</button>
 						</div>
 					</form>
 				</div>

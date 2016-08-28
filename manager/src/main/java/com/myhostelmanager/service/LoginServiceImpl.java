@@ -23,7 +23,7 @@ public class LoginServiceImpl implements LoginService {
 	@Autowired
 	private LoginDao loginDao;
 	private List<Login> loginList;
-	Logger logger=LoggerFactory.getLogger(MainController.class);
+	Logger logger=LoggerFactory.getLogger(LoginServiceImpl.class);
 	
 	public boolean isUserValid(String id, String pswd) {
 		logger.info("id:{} pswd:{}", id, pswd);
@@ -31,6 +31,9 @@ public class LoginServiceImpl implements LoginService {
 		logger.info("Size:"+loginList.size());
 		Iterator itr = loginList.iterator();
 		boolean status = false;
+//		if(loginList.size()==1){
+//			status = true;
+//		}
         while(itr.hasNext())
         {
         	Login l=(Login)itr.next();

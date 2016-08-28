@@ -36,5 +36,4 @@ public class BlockDaoImpl implements BlockDao {
 		List<String> roomNos = query.list();
 		return roomNos;
 	}
-
 }
