@@ -1,6 +1,8 @@
 package com.myhostelmanager.form;
 
 public class NewTenantForm {
+	
+	private int autoId;
 	private String name;
 	private String mobile;
 	private String email;
@@ -12,6 +14,12 @@ public class NewTenantForm {
 	private String bId;
 	private String hostelName;
 	
+	public int getAutoId() {
+		return autoId;
+	}
+	public void setAutoId(int autoId) {
+		this.autoId = autoId;
+	}
 	public String getName() {
 		return name;
 	}

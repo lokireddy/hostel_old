@@ -123,6 +123,7 @@
 			<div class="row main">
 				<div class="main-login main-center">
 					<form class="form-horizontal" role="form" method="post" action="addTenant.LoRe">
+					<span class="err" style="text-align:center;"> ${personStatus }</span>
 						<form:input path = "newTenant.bId" type = "hidden" value="${bId }" />
 						<form:input path = "newTenant.hostelName" type = "hidden" value = "${hostelName }" />
 						<div class="form-group">
@@ -137,6 +138,11 @@
 						</div>
 
 						<div class="form-group">
+							<form:label path="newTenant.autoId">
+								<spring:message text="Id"/>
+							</form:label>
+<%-- 							<form:hidden path = "newTenant.autoId" readonly = "true" disabled = "true"/> --%>
+							<form:hidden path="newTenant.autoId"/>						
 							<form:label path="newTenant.mobile" for="username" class="cols-sm-2 control-label">Mobile</form:label>
 							<div class="cols-sm-10">
 								<div class="input-group">

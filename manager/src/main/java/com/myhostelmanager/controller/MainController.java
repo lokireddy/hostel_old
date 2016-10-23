@@ -147,7 +147,7 @@ public class MainController {
 			boolean personExist = operationsService.isPersonExist(newTenantForm);
 			if(personExist){
 				logger.info("Person already exist.");
-				model.addAttribute("personStatus", "Person already registered.");
+				model.addAttribute("personStatus", "Already registered.");
 				modelView = new ModelAndView("newTenant");
 			}else{
 				logger.info("Registering person.");

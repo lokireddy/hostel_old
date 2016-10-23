@@ -18,6 +18,9 @@ public class Person implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "autoId")
+	private int autoId;
+	
 	@Column(name = "mobile")
 	private String mobile;
 	
@@ -45,6 +48,14 @@ public class Person implements Serializable {
 	@Column (name = "bId")
 	private String bId;
 	
+	public int getAutoId() {
+		return autoId;
+	}
+
+	public void setAutoId(int autoId) {
+		this.autoId = autoId;
+	}
+
 	public String getMobile() {
 		return mobile;
 	}
