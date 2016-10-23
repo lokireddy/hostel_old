@@ -153,13 +153,26 @@ public class MainController {
 				logger.info("Registering person.");
 				Person person = operationsService.personFormToPerson(newTenantForm);
 				operationsService.savePerson(person);
-				newTenantForm = null;
+				model.addAttribute("personStatus", "Registration Succsessful.");
+				newTenantForm = clearForm(newTenantForm);
 				modelView = new ModelAndView("newTenant");
 			}
 		}
 		return modelView;
 	}
-	
+	public NewTenantForm clearForm(NewTenantForm newTenantForm){
+		newTenantForm.setAddress(null);
+		newTenantForm.setAmount(0);
+		newTenantForm.setbId(null);
+		newTenantForm.setDoj(null);
+		newTenantForm.setEmail(null);
+		newTenantForm.setHostelName(null);
+		newTenantForm.setId(null);
+		newTenantForm.setMobile(null);
+		newTenantForm.setName(null);
+		newTenantForm.setRoom(null);
+		return newTenantForm;
+	}
 	
 	
 }

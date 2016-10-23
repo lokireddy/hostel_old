@@ -99,6 +99,10 @@
 			.err{
 				color:red;
 			}
+			.form-group.required .control-label:after { 
+			   content:"*";
+			   color:red;
+			}
 	    </style>
 	    
 	    	    
@@ -126,8 +130,8 @@
 					<span class="err" style="text-align:center;"> ${personStatus }</span>
 						<form:input path = "newTenant.bId" type = "hidden" value="${bId }" />
 						<form:input path = "newTenant.hostelName" type = "hidden" value = "${hostelName }" />
-						<div class="form-group">
-							<form:label path="newTenant.name" for="name" class="cols-sm-2 control-label">Name</form:label>
+						<div class="form-group required">
+								<form:label path="newTenant.name" for="name" class="cols-sm-2 control-label">Name</form:label>
 							<div class="cols-sm-10">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
@@ -137,11 +141,10 @@
 							</div>
 						</div>
 
-						<div class="form-group">
+						<div class="form-group required">
 							<form:label path="newTenant.autoId">
 								<spring:message text="Id"/>
 							</form:label>
-<%-- 							<form:hidden path = "newTenant.autoId" readonly = "true" disabled = "true"/> --%>
 							<form:hidden path="newTenant.autoId"/>						
 							<form:label path="newTenant.mobile" for="username" class="cols-sm-2 control-label">Mobile</form:label>
 							<div class="cols-sm-10">
@@ -164,7 +167,7 @@
 							</div>
 						</div>
 
-						<div class="form-group">
+						<div class="form-group required">
 							<form:label path="newTenant.id" for="id" class="cols-sm-2 control-label">Gov. Id</form:label>
 							<div class="cols-sm-10">
 								<div class="input-group">
@@ -175,7 +178,7 @@
 							</div>
 						</div>
 
-						<div class="form-group">
+						<div class="form-group required">
 							<form:label path="newTenant.doj" for="confirm" class="cols-sm-2 control-label">Date of Join</form:label>
 							<div class="cols-sm-10">
 								<div class="input-group">
@@ -196,7 +199,7 @@
 							</div>
 						</div>
 						
-						<div class="form-group">
+						<div class="form-group required">
 							<form:label path="newTenant.room" for="room" class="cols-sm-2 control-label">Room Number</form:label>
 							<div class="cols-sm-10">
 								<div class="input-group">
@@ -215,14 +218,14 @@
 							<div class="cols-sm-10">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-inr fa" aria-hidden="true"></i></span>
-									<form:input path="newTenant.amount" type="number" min="0" class="form-control" name="amount" id="amount"  placeholder="Enter Amount"/>
+									<form:input path="newTenant.amount" type="number" class="form-control" name="amount" id="amount"  placeholder="Enter Amount"/>
 								</div>
 								<form:errors path="newTenant.amount" class="err"/>
 							</div>
 						</div>
 
 						<div class="form-group ">
-							<button type="submit" class="btn btn-primary btn-lg btn-block login-button">Add Tenant</button>
+							<button type="submit" class="btn btn-primary btn-lg btn-block login-button"><span><b>Add Tenant</b></span></button>
 							<button type="reset" class="btn btn-link btn-lg btn-block ">Reset</button>
 						</div>
 					</form>
