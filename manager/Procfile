@@ -1,3 +1,1 @@
-git add
-git commit -m "Procfile"
-git push heroku
+heroku ps:scale web=1 -a myhostelmanager
