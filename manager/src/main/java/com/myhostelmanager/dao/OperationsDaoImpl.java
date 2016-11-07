@@ -20,9 +20,9 @@ public class OperationsDaoImpl implements OperationsDao {
 	private SessionFactory sessionFactory;
 	Logger logger=LoggerFactory.getLogger(MainController.class);
 	
-	public List getMobileNumbers(String bId) {
-		logger.info("Block Id:{}", bId);
-		String hql = "select mobile from Person where bId = '" + bId + "'";
+	public List getMobileNumbers() {
+		logger.info("Getting all Mobile numbers.");
+		String hql = "select mobile from Person ";
 		Query query = sessionFactory.getCurrentSession().createQuery(hql);
 		List<String> mobileNos = query.list();
 		return mobileNos;
@@ -30,9 +30,9 @@ public class OperationsDaoImpl implements OperationsDao {
 
 	public void savePerson(Person person) {
 		try{
-			sessionFactory.getCurrentSession().beginTransaction();
+//			sessionFactory.getCurrentSession().beginTransaction();
 			sessionFactory.getCurrentSession().save(person);
-			sessionFactory.getCurrentSession().getTransaction().commit();
+//			sessionFactory.getCurrentSession().getTransaction().commit();
 			logger.info("Person saved to DataBase.");
 		}catch(HibernateException e){
 			logger.error(e.getMessage());

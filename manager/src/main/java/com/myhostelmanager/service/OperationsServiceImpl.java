@@ -28,9 +28,9 @@ public class OperationsServiceImpl implements OperationsService {
 	Logger logger=LoggerFactory.getLogger(OperationsServiceImpl.class);
 
 	public boolean isPersonExist(NewTenantForm newTenantForm) {
-		logger.info("bId:{}", newTenantForm.getbId());
+		logger.info("Checking person Exist or not.");
 		boolean exist = false;
-		List<String> mobileNumbers = operationsDao.getMobileNumbers(newTenantForm.getbId());
+		List<String> mobileNumbers = operationsDao.getMobileNumbers();
 		Iterator itr = mobileNumbers.iterator();
 		while(itr.hasNext()){
 			exist = newTenantForm.getMobile().equals(itr.next());
