@@ -15,7 +15,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>myhostelmanager</servlet-name>
-    <url-pattern>/</url-pattern>
+    <url-pattern>*.LoRe</url-pattern>
   </servlet-mapping>
   <listener>
     <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
