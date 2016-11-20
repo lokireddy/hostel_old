@@ -1,6 +1,7 @@
 package com.myhostelmanager.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
@@ -38,5 +39,14 @@ public class OperationsDaoImpl implements OperationsDao {
 			logger.error(e.getMessage());
 		}
 		
+	}
+
+	public List getAllPersons(String bId) {
+		logger.info("Getting all Persons");
+		String hql = "from Person where bId = ?" ;
+		Query query = sessionFactory.getCurrentSession().createQuery(hql);
+		query.setString(0, bId);
+		List<Person> allPersons = query.list(); 
+		return allPersons;
 	}
 }

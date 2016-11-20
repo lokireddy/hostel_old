@@ -13,6 +13,7 @@ public class NewTenantForm {
 	private int amount;
 	private String bId;
 	private String hostelName;
+	private String dov;
 	
 	public int getAutoId() {
 		return autoId;
@@ -79,6 +80,12 @@ public class NewTenantForm {
 	}
 	public void setHostelName(String hostelName) {
 		this.hostelName = hostelName;
+	}
+	public String getDov() {
+		return dov;
+	}
+	public void setDov(String dov) {
+		this.dov = dov;
 	}
 	@Override
 	public String toString() {

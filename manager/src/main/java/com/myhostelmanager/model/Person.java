@@ -45,8 +45,11 @@ public class Person implements Serializable {
 	@Column(name = "email")
 	private String email;
 	
-	@Column (name = "bId")
+	@Column (name = "blockId")
 	private String bId;
+	
+	@Column(name = "dov")
+	private Date dov;
 	
 	public int getAutoId() {
 		return autoId;
@@ -126,6 +129,14 @@ public class Person implements Serializable {
 
 	public void setbId(String bId) {
 		this.bId = bId;
+	}
+
+	public Date getDov() {
+		return dov;
+	}
+
+	public void setDov(Date dov) {
+		this.dov = dov;
 	}
 
 	@Override

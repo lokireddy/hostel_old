@@ -60,9 +60,9 @@
                         </div>
                         
                         <div class="menu-item green">
-                            <a href="#">
+                            <a href="voruTenant.LoRe?bId=${bId }&bName=${hostelName} ">
 								<br><br>
-                                <p style="font-size:50px">Update Details</p>
+                                <p style="font-size:50px">View/Update Tenant </p>
                                 <br><br>
                             </a>
                         </div>

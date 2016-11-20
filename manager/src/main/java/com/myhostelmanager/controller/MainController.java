@@ -161,6 +161,21 @@ public class MainController {
 		}
 		return modelView;
 	}
+	/*--------------- View/Update Tenant -------------------------*/
+	@RequestMapping (value = "/voruTenant", method = RequestMethod.GET)
+	public ModelAndView updateTenant(HttpServletRequest request, ModelMap model){
+		logger.info("updateTenant GET method invoked.");
+		String bId=request.getParameter("bId");
+		String bName=request.getParameter("bName");
+		logger.info("bId:{} and bName:{}",bId,bName);
+		model.addAttribute("bId", bId);
+		model.addAttribute("hostelName", bName);
+		List<Person> allPersons = operationsService.getAllPersons(bId);
+		model.addAttribute("all", allPersons);
+		logger.info("Block Name:{}",bName);
+		return new ModelAndView("allTenants");
+	}
+	
 	public NewTenantForm clearForm(NewTenantForm newTenantForm){
 		newTenantForm.setAddress(null);
 		newTenantForm.setAmount(0);

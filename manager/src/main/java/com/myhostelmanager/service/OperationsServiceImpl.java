@@ -69,4 +69,10 @@ public class OperationsServiceImpl implements OperationsService {
 		logger.info(person.toString());
 		operationsDao.savePerson(person);
 	}
+
+	public List getAllPersons(String bId) {
+		List<Person> persons = operationsDao.getAllPersons(bId);
+		logger.info("Total Persons Retrived:{}", persons.size());
+		return persons;
+	}
 }
