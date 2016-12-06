@@ -131,11 +131,18 @@
         </section>
         <!-- End Logo Section -->
 
-		<div class="container" align="text-center">
+		<div class="container" >
 		   <div class="row">
-		       <div class="col-lg-6 col-lg-offset-3">
+			   <div class="form-group col-lg-2 col-lg-offset-2">
+					<select class="form-control selectpicker show-menu-arrow show-tick ">
+			   				<option value = "pmhb1">Loki Block_1</option>
+							<option value = "pmhb2">Kanth Block_3</option>
+							<option value = "pmhb3">Reddy Block_2</option>
+		   			</select>		   		
+	   			</div>
+		   		<div class="form-group col-lg-6">
 		           <input type="search" id="search" value="" class="form-control" placeholder="Start typing to Search">
-		       </div>
+		       	</div>
 		   </div>
 		   <br>
 		   <div class="row">
@@ -176,13 +183,14 @@
 											<td><c:out value = "${ person.dov}"></c:out></td>			                       		
 			                       		</c:otherwise>
 			                       </c:choose>
-			                       <td align="center"><a  href = "/deletePerson?pId =<c:out value =  "${person.autoId}"/>">Delete&nbsp&nbsp&nbsp<i class="fa fa-trash fa" aria-hidden="true"></i></a></td>
+			                       <td align="center"><a  href = "/deletePerson?pId =<c:out value =  "${person.autoId}"/>">Delete &nbsp&nbsp&nbsp<i class="fa fa-trash fa" aria-hidden="true"></i></a></td>
 			                   </tr>
 			                   </c:forEach>
 		               </tbody>
 		           </table>
 		           <hr>
 		       </div>
+		</div>
 		</div>
 		<script type="text/javascript">
 		$(function () {
