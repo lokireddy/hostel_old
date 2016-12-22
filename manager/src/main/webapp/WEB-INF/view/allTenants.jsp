@@ -166,7 +166,7 @@
 		               <tbody>
 								<c:forEach items = "${ all}" var = "person">
 								<tr>								
-			                       <td align="center"><a href = "/updatePerson?pId =<c:out value =  "${person.autoId}"/>">Edit&nbsp&nbsp&nbsp<i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
+			                       <td align="center"><a href = "/manager/updatePerson.LoRe?pId=<c:out value =  "${person.autoId}"/>&bId=${bId }&bName=${hostelName}">Edit&nbsp&nbsp&nbsp<i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
 			                       <td><c:out value = "${ person.name}"></c:out></td>
 			                       <td><c:out value = "${ person.mobile}"></c:out></td>
 			                       <td><c:out value = "${ person.room}"></c:out></td>
@@ -183,7 +183,7 @@
 											<td><c:out value = "${ person.dov}"></c:out></td>			                       		
 			                       		</c:otherwise>
 			                       </c:choose>
-			                       <td align="center"><a  href = "/deletePerson?pId =<c:out value =  "${person.autoId}"/>">Delete &nbsp&nbsp&nbsp<i class="fa fa-trash fa" aria-hidden="true"></i></a></td>
+			                       <td align="center"><a  href = "/deletePerson?pId=<c:out value =  "${person.autoId}"/>&bId=${bId }&bName=${hostelName}">Delete &nbsp&nbsp&nbsp<i class="fa fa-trash fa" aria-hidden="true"></i></a></td>
 			                   </tr>
 			                   </c:forEach>
 		               </tbody>

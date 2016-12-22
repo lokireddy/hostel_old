@@ -11,4 +11,5 @@ public interface OperationsService {
 	public Person personFormToPerson(NewTenantForm newTenantForm);
 	public void savePerson(Person person);
 	public List getAllPersons(String bId);
+	public List getPerson(String pId);
 }

@@ -49,4 +49,13 @@ public class OperationsDaoImpl implements OperationsDao {
 		List<Person> allPersons = query.list(); 
 		return allPersons;
 	}
+	
+	public List getPerson (String pId){
+		logger.info("Getting Person with ID:{}",pId);
+		String hql = "from Person where autoId = ?";
+		Query query = sessionFactory.getCurrentSession().createQuery(hql);
+		query.setString(0, pId);
+		List<Person> person = query.list();
+		return person;
+	}
 }

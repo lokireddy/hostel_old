@@ -1,5 +1,6 @@
 package com.myhostelmanager.controller;
 
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -163,7 +164,7 @@ public class MainController {
 	}
 	/*--------------- View/Update Tenant -------------------------*/
 	@RequestMapping (value = "/voruTenant", method = RequestMethod.GET)
-	public ModelAndView updateTenant(HttpServletRequest request, ModelMap model){
+	public ModelAndView viewOrUpdateTenant(HttpServletRequest request, ModelMap model){
 		logger.info("updateTenant GET method invoked.");
 		String bId=request.getParameter("bId");
 		String bName=request.getParameter("bName");
@@ -174,6 +175,23 @@ public class MainController {
 		model.addAttribute("all", allPersons);
 		logger.info("Block Name:{}",bName);
 		return new ModelAndView("allTenants");
+	}
+	
+	/*--------------update-------------------------------------*/
+	@RequestMapping (value = "/updatePerson", method = RequestMethod.GET)
+	public ModelAndView displayUpdateForm(HttpServletRequest request, ModelMap model){
+		logger.info("Redirecting to update Form");
+		String pId = request.getParameter("pId");
+		String bId = request.getParameter("bId");
+		String bName = request.getParameter("bName");
+		model.addAttribute("bId", bId);
+		model.addAttribute("hostelName", bName);
+		List person = operationsService.getPerson(pId);
+		List<String> roomNos = blockService.getRooms(bId);
+		model.addAttribute("roomNos", roomNos);
+		logger.info("Room Nos added to List.");
+//		model.addAttribute("tenant",person);
+		return new ModelAndView("updateTenant","updateTenant",setFormValues(person));
 	}
 	
 	public NewTenantForm clearForm(NewTenantForm newTenantForm){
@@ -190,5 +208,24 @@ public class MainController {
 		return newTenantForm;
 	}
 	
+	public NewTenantForm setFormValues(List person){
+		NewTenantForm tenantForm = new NewTenantForm();
+		Iterator<Person> itr = (Iterator<Person>) person.iterator();
+		while(itr.hasNext()){
+			Person p = itr.next();
+			tenantForm.setAddress(p.getAddress());
+			tenantForm.setAmount(p.getAmount());
+			tenantForm.setbId(p.getbId());
+			tenantForm.setDoj(p.getDoj().toString());
+			tenantForm.setDov(p.getDov().toString());
+			tenantForm.setEmail(p.getEmail());
+			tenantForm.setHostelName(p.getbId());
+			tenantForm.setId(p.getId());
+			tenantForm.setMobile(p.getMobile());
+			tenantForm.setName(p.getName());
+			tenantForm.setRoom(p.getRoom());
+		}
+		return tenantForm;
+	}
 	
 }
